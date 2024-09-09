@@ -44,7 +44,7 @@ totalToppingCost = COST_OF_TOPPINGS * numOfToppings;
 baseCost = totalSandwichCost + totalToppingCost;
 
 //all together
-orderCost = baseCost + tip * ( 1 - DISCOUNT_AMOUNT);
+orderCost = (baseCost + tip) * ( 1 - DISCOUNT_AMOUNT);
 
 
 
