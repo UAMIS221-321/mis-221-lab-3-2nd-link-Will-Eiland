@@ -1,19 +1,52 @@
-//-----------------------------------------------------------------TA 
+//------------------------------(Initalizing Phase)-----------------------------------
 //initialize variables
-int numOfSandwiches = 0;
-int numOfToppings = 0;
-double tip = 0;
-double totalSandwichCost;
-double totalTippingCost;
-double baseCost;
+int numOfSandwiches = 0;           //     \
+int numOfToppings = 0;             //     |----Ask for these
+double tip = 0;                    //     /
+
+double totalSandwichCost = 0;
+double totalToppingCost = 0;
+double baseCost = 0;
 
 //initalize constants
 const double COST_OF_SANDWICHES = 4.75;
 const double COST_OF_TOPPINGS = 0.55;
 const double DISCOUNT_AMOUNT  = 0.10;
 
+//final Result
+double orderCost = 0;                   //    the end amt told back to the user
+
+
+//---------------------(Asking Phase)----------------------------------
 //promt the user for # sandwiches
 System.Console.Writeline("How many Sandwiches?");
-numOfSandwiches = int.Parse(Console.Readline());
-System.Console.Writeline("Sandwiches" + numOfSandwiches);
-//--------------------------------------------------------------
+numOfSandwiches = int.Parse(Console.Readline());            //   ----Asks for Sandwiches
+System.Console.Writeline("Sandwiches" + numOfSandwiches);      // tells "Sandwichs __(#)__ "
+
+System.Console.Writeline("How many Toppings?");
+numOfToppings = int.Parse(Console.Readline());            //   ----Asks for Toppings
+System.Console.Writeline("Toppings" + numOfToppings);
+
+System.Console.Writeline("How much would you like to tip?(as a decimal)");
+tip = int.Parse(Console.Readline());                            //-----Asks for tips
+System.Console.Writeline("Tip" + numOfToppings);
+
+
+//---------------------------------(Internal Math Phase)-----------------------------------------------
+
+//Sandwich Cost
+totalSandwichCost = COST_OF_SANDWICHES * numOfSandwiches;
+
+//Toppings Cost
+totalToppingCost = COST_OF_TOPPINGS * numOfToppings;
+
+//before Tip Cost
+baseCost = totalSandwichCost + totalToppingCost;
+
+//all together
+orderCost = baseCost + tip * ( 1 - DISCOUNT_AMOUNT);
+
+
+
+//---------------------------------------(Final Display)--------------------------------
+System.Console.Writeline(orderCost);
